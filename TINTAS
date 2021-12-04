@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <math.h>
+int main () 
+{
+	float areat, aread, areau;
+    int qgalaof, qlataf;
+    float qgalao, qlata, rgalao,rlata;
+  
+    
+	printf ("Entre com a area da parede: ");
+	scanf ("%f", &areat);
+	printf ("Entre com a area que nao sera pintada: ");
+	scanf ("%f", &aread);
+     if(aread<0) 
+	 {
+     	printf ("Insira o valor correto.");
+     	return (0);
+	 }
+     
+	areau = areat-aread;
+	  if(areau <= 0 ) 
+	  {
+	  	printf ("Insira os valores corretos");
+	  	
+	  	return (0);
+	  }
+	printf("A area pintada sera: %f metros quadrados", areau);
+	//Estamos considerando  que tem galôes de 3,6 litros e de 18 litros, além disso, 1 litro pinta 6 metros
+	if(areau <= 21.6)
+	 { 
+	 	qgalao = areau/21,6;
+	 	qgalaof = ceil(qgalao);
+	 	rgalao = qgalaof*25;
+	 	
+	 	qlata = areau/108;
+	 	qlataf= ceil(qlata);
+	 	rlata = qlataf*80;
+	 	
+	 	printf ("\n\nNao sera necessario comprar lata.");
+	 	printf ("\nA quantidade de galoes necessarios sera: %d e o preco sera %f reais",qgalaof, rgalao);
+  	 }
+	 else  
+	 {
+	 	qgalao = areau/21,6;
+	 	qgalaof = ceil(qgalao);
+	 	rgalao = qgalaof*25;
+	 	
+	 	qlata = areau/108;
+	 	qlataf= ceil(qlata);
+	 	rlata = qlataf*80;
+	 	 
+	 	 printf ("\n\nOptando por comprar galoes, a quantidade necessaria sera %d e o preco sera %f reais",qgalaof, rgalao);
+         printf ("\nOptando por comprar latas, a quantidade necessaria sera %d e o preco sera %f reais",qlataf, rlata);
+	 	 
+		   if ((areau>21,6)&&(rgalao<=rlata)) {printf("\nCompra galao e melhor.");}
+	       else {printf("\nCompra lata e melhor.");}
+	 }
+	
+	int a;
+	do 
+	{
+	 printf ("\n\nDeseja realizar a compra? Escolha um numero\n\n");
+	 printf ("\t(1)...Sim\n");	
+	 printf ("\t(2)...Nao\n");
+	 scanf ("%d", &a);
+	} while ((a<1)||(a>2));
+	 switch (a) 
+	 { 
+	     case 1:
+	     	printf ("\t\tPode se dirigir ao caixa\n\t\tAgradecemnos a preferencia.\n");
+	     	break;
+	     case 2:
+	     	printf ("\t\tObrigado por ter vindo.\n");
+	     	break;
+	 }
+	 
+	return (0);
+}
